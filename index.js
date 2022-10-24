@@ -12,5 +12,40 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  return tutorials.map(str=>{
+    const splitStr = str.split(' ')
+    const capStr = capitalizeWords(splitStr);
+    return capStr;
+  })
 }
+
+// What I need to do
+// #1 Split each element of the original array into its own wordArray
+// #2 Capitalize the first letter of each element in wordArray
+// #3 join() the wordArray back into a single element of the original array
+// #4 Iterate that whole process through thre original array
+// #5 Return the array w/ capitalized first letters
+
+const intro = 'hi. my name is andrew.';
+const splitIntro = intro.split(' ');
+
+
+function capitalizeWords(array) {
+  let capArrElm= array.map(element => {
+    return element.charAt(0).toUpperCase() + element.slice(1);
+  }); console.log(capArrElm);
+ return capArrElm.join(' ');
+}
+
+
+function iterateOut(array){
+  for (str of array){
+      str.map(capitalizeWords);
+  }
+}
+
+// iterateOut(tutorials);
+console.log(capitalizeWords(splitIntro));
+let test =capitalizeWords(splitIntro)
+
+iterateOut(splitIntro);
